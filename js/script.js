@@ -50,11 +50,11 @@ const handleShowDetails = async(id) => {
 }
 
 const showDetail = (data) =>{
-    console.log(data);
+    // console.log(data);
     const modalContainer = document.getElementById('modal-container');
     modalContainer.innerHTML = `
     <dialog id="show_detail_modal" class="modal">
-    <form method="dialog" class="modal-box w-11/12 max-w-4xl max-h-screen flex flex-col-reverse lg:flex-row gap-4">
+    <form method="dialog" class="modal-box w-11/12 max-w-4xl max-h-screen flex flex-col-reverse lg:flex-row gap-3 lg:gap-8">
         <!-- right side -->
         <div class="shadow-2xl border p-5 rounded-lg space-y-4">
             <h3 class="text-xl font-bold text-center">${data.description}</h3>
@@ -64,19 +64,14 @@ const showDetail = (data) =>{
                 <p class="shadow-xl bg-white p-2 rounded-lg text-center text-red-500">${data.pricing[2].plan} <br> <span>${data.pricing[2].price}</span></p>
             </div>
             <div class="flex flex-col lg:flex-row justify-between">
-                <div>
+                <div id='feature-list'>
                     <h1 class="text-2xl font-bold">Features</h1>
                     <br>
-                    <li>Customizable response</li>
-                    <li>Multilingual support</li>
-                    <li>Seamless integration</li>
                 </div>
-                <div>
+                <div id='integration-list'>
                     <h1 class="text-2xl font-bold">Integrations</h1>
                     <br>
-                    <li>FB Messenger</li>
-                    <li>Slack</li>
-                    <li>Telegram</li>
+                   <!-- ----------------------------------------------------- -->
                 </div>
             </div>
 
@@ -99,6 +94,31 @@ const showDetail = (data) =>{
     </form>
 </dialog>
     ` ;
+
+    integrationListHandler(data);
+    featureListHandler(data.features)
 };
+
+const integrationListHandler = (data) => {
+    const listContainer =  document.getElementById('integration-list');
+    const integrationListItem = data.integrations;
+    integrationListItem.forEach(insideItem => {
+        const li = document.createElement('li');
+        li.innerText = insideItem;
+        listContainer.appendChild(li);
+    })
+};
+
+const featureListHandler = (data) => {
+    const featureListContainer = document.getElementById('feature-list');
+    console.log(data);
+    // for(const value in data){
+    //     console.log(value);
+    //     const li = document.createElement('li');
+    //         li.innerText = value;
+    //     featureListContainer.appendChild(li);
+    // }
+};
+
 
 loadData();

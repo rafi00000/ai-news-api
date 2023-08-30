@@ -111,13 +111,14 @@ const integrationListHandler = (data) => {
 
 const featureListHandler = (data) => {
     const featureListContainer = document.getElementById('feature-list');
-    console.log(data);
-    // for(const value in data){
-    //     console.log(value);
-    //     const li = document.createElement('li');
-    //         li.innerText = value;
-    //     featureListContainer.appendChild(li);
-    // }
+    for (const key in data) {
+        if (data.hasOwnProperty(key)) {
+            const feature = data[key];
+            const li = document.createElement('li');
+            li.innerText = feature.feature_name;
+            featureListContainer.appendChild(li);
+        }
+    }
 };
 
 

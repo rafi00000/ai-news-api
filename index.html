@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ai practice API</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.3/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <header>
+        <h1 class="text-4xl font-bold text-center">AI Universe Hub</h1>
+    </header>
+
+    <body>
+        <div class="flex justify-center mt-5">
+            <button class="text-white font-mono font-extrabold bg-red-500 p-3 rounded-xl ">Sort By Date</button>
+        </div>
+        <section class="my-6 space-y-14 container mx-auto">
+                        
+            <div id="card-container" class="grid grid-cols-1 lg:grid-cols-3 gap-2 lg:gap-4 items-center">
+                <!-- card 1 -->
+            </div>
+            <!-- Open the modal using ID.showModal() method -->
+            <div id="modal-container">
+                <!-- <button class="btn" onclick="show_detail_modal.showModal()">click here</button> -->
+                <dialog id="show_detail_modal" class="modal">
+                    <form method="dialog" class="modal-box w-11/12 max-w-4xl max-h-screen flex flex-col-reverse lg:flex-row gap-4">
+                        <!-- right side -->
+                        <div class="shadow-2xl border p-5 rounded-lg space-y-4">
+                            <h3 id="modal-left-title" class="text-xl font-bold text-center">ChatGPT is an AI-powered chatbot platform that uses OpenAI's GPT technology to simulate human conversation.</h3>
+                            <div class="flex flex-col lg:flex-row gap-3 items-center justify-center">
+                                <p class="bg-white p-2 rounded-lg text-center shadow-xl text-green-700">$10/month <br> Basic</p>
+                                <p class="bg-white p-2 rounded-lg text-center shadow-xl text-orange-500">$50/month <br> Pro</p>
+                                <p class="shadow-xl bg-white p-2 rounded-lg text-center text-red-500">Contact <br> us <br> Enterprise</p>
+                            </div>
+                            <div class="flex flex-col lg:flex-row justify-between">
+                                <div>
+                                    <h1 class="text-2xl font-bold">Features</h1>
+                                    <br>
+                                    <li>Customizable response</li>
+                                    <li>Multilingual support</li>
+                                    <li>Seamless integration</li>
+                                </div>
+                                <div>
+                                    <h1 class="text-2xl font-bold">Integrations</h1>
+                                    <br>
+                                    <li>FB Messenger</li>
+                                    <li>Slack</li>
+                                    <li>Telegram</li>
+                                </div>
+                            </div>
+                
+                        </div>
+                
+                        <!-- left side -->
+                        <div class="space-y-5 border shadow-2xl p-4 rounded-xl">
+                            <figure>
+                                <img id="modal-right-img" src="" alt="">
+                            </figure>
+                            <h3 class="text-2xl">Hi, how are you doing today?</h3>
+                            <p>I'm doing well, thank you for asking. How can I assist you today?</p>
+                        </div>
+                
+                    </form>
+                
+                
+                    <form method="dialog" class="modal-backdrop">
+                        <button>close</button>
+                    </form>
+                </dialog>
+            </div>
+                
+        </section>
+        
+        <div class="flex justify-center">
+            <button class="text-white font-mono font-extrabold bg-red-500 p-3 rounded-xl ">Sort By Date</button>
+        </div>
+
+    </body>
+
+    <footer>
+
+    </footer>
+
+    <script src="./js/script.js"></script>
+</body>
+</html>

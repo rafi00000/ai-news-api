@@ -27,7 +27,7 @@ const dataDisplay = (data) => {
                         <div class="card-actions justify-between">
                             <div>
                                 <h2 class="text-lg font-bold">${element.name}</h2>
-                                <p>Date: <span>11/10/2021</span></p>
+                                <p>Date: <span>${element.published_in}</span></p>
                             </div>
                             <div>
                                 <button onclick="handleShowDetails('${element.id}')" class="text-white font-mono font-extrabold bg-red-500 p-3 rounded-full">--></button>
@@ -50,7 +50,6 @@ const handleShowDetails = async(id) => {
 }
 
 const showDetail = (data) =>{
-    // console.log(data);
     const modalContainer = document.getElementById('modal-container');
     modalContainer.innerHTML = `
     <dialog id="show_detail_modal" class="modal">
@@ -71,7 +70,6 @@ const showDetail = (data) =>{
                 <div id='integration-list'>
                     <h1 class="text-2xl font-bold">Integrations</h1>
                     <br>
-                   <!-- ----------------------------------------------------- -->
                 </div>
             </div>
 
@@ -121,5 +119,8 @@ const featureListHandler = (data) => {
     }
 };
 
+const sortBtnHandler = () =>{
+    loadData();
+}; 
 
 loadData();

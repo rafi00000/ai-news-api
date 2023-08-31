@@ -1,15 +1,14 @@
-const loadData = async() => {
+const loadData = async(cardNumber) => {
     const res = await fetch(`https://openapi.programming-hero.com/api/ai/tools`)
     const rec = await res.json();
     const data = rec.data.tools;
-    dataDisplay(data);
+    dataDisplay(data, cardNumber);
 };
 
-const dataDisplay = (data) => {
+const dataDisplay = (data, number) => {
     const cardContainer = document.getElementById('card-container');
-    data.forEach(element => {
-        console.log(element);
-
+    cardContainer.textContent = '';
+    data.slice(0, number).forEach(element => {
         const div = document.createElement('div');
         div.innerHTML = `
             <div class="card shadow-2xl">
@@ -119,8 +118,11 @@ const featureListHandler = (data) => {
     }
 };
 
-const sortBtnHandler = () =>{
-    loadData();
+const seeAllHandler = async() =>{
+    const res = await fetch(`https://openapi.programming-hero.com/api/ai/tools`)
+    const rec = await res.json();
+    const data = rec.data.tools;
+    loadData(data.length);
 }; 
 
-loadData();
+loadData(6);
